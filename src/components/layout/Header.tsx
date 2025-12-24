@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { WESchoolsLogo } from "@/components/ui/WESchoolsLogo";
 import { 
-  GraduationCap, 
   Menu, 
   X,
   LogIn
@@ -25,14 +25,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <GraduationCap className="w-6 h-6 text-primary-foreground" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg text-foreground">WE Schools</span>
-              <span className="text-xs text-muted-foreground">قصتك مستقبلك</span>
-            </div>
+          <Link to="/" className="group">
+            <WESchoolsLogo size="sm" className="group-hover:scale-105 transition-transform duration-300" />
           </Link>
 
           {/* Desktop Navigation */}
