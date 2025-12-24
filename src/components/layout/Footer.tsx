@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, Phone, MapPin } from "lucide-react";
+import { WESchoolsLogo } from "@/components/ui/WESchoolsLogo";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,14 +9,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <GraduationCap className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl">WE Schools</span>
-                <span className="text-sm text-sidebar-foreground/70">قصتك مستقبلك</span>
-              </div>
+            <Link to="/" className="inline-block mb-4">
+              <WESchoolsLogo size="md" textColor="white" />
             </Link>
             <p className="text-sidebar-foreground/80 leading-relaxed max-w-md">
               منصة رقمية متكاملة لمتابعة وتطوير سلوك الطلاب في مدارس WE للتكنولوجيا التطبيقية، 
