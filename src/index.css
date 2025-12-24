@@ -121,6 +121,26 @@
   body {
     @apply bg-background text-foreground font-cairo antialiased;
   }
+
+  /* Make all text non-editable and non-selectable except inputs */
+  h1, h2, h3, h4, h5, h6, p, span, label, div, a, li, td, th {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+  }
+
+  /* Allow selection and interaction only in form elements */
+  input, textarea, select, [contenteditable="true"] {
+    user-select: text;
+    -webkit-user-select: text;
+    cursor: text;
+  }
+
+  button, [role="button"], a[href] {
+    cursor: pointer;
+  }
 }
 
 @layer components {
