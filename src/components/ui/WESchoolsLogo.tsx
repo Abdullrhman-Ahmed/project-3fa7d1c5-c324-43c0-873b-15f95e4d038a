@@ -23,7 +23,7 @@ const WESchoolsLogo = ({
   const currentSize = sizes[size];
 
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex items-center gap-3 ${className}`}>
       {/* WE Schools Official Logo */}
       <img 
         src={weSchoolsLogo} 
@@ -35,6 +35,18 @@ const WESchoolsLogo = ({
         }}
         className="flex-shrink-0"
       />
+
+      {/* Text */}
+      {showText && (
+        <div className="flex flex-col leading-tight" style={{ color: textColor }}>
+          <span className="font-bold text-sm">
+            مدارس WE
+          </span>
+          <span className="text-xs text-muted-foreground">
+            للتكنولوجيا التطبيقية
+          </span>
+        </div>
+      )}
     </div>
   );
 };
