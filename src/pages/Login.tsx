@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
+import { WESchoolsLogo } from "@/components/ui/WESchoolsLogo";
 import {
   GraduationCap,
   School,
@@ -427,14 +428,8 @@ const Login = () => {
       <div className="w-full max-w-4xl relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <GraduationCap className="w-8 h-8 text-primary-foreground" />
-            </div>
-            <div className="flex flex-col text-right">
-              <span className="font-bold text-2xl text-foreground">مدارس WE للتكنولوجيا التطبيقية</span>
-              <span className="text-sm text-primary font-medium">قصتك مستقبلك</span>
-            </div>
+          <Link to="/" className="inline-flex items-center gap-3 mb-6 group hover:opacity-90 transition-opacity">
+            <WESchoolsLogo size="md" />
           </Link>
           <h1 className="text-3xl font-bold text-foreground mb-2">تسجيل الدخول</h1>
           <p className="text-muted-foreground">اختر نوع الحساب للمتابعة</p>
