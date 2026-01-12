@@ -82,14 +82,18 @@ const TeacherDashboard = () => {
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="glass" size="icon" className="relative">
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
-                  5
-                </span>
+              <Button variant="glass" size="icon" className="relative" asChild>
+                <Link to="/dashboard/teacher/notifications">
+                  <Bell className="w-5 h-5" />
+                  <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
+                    5
+                  </span>
+                </Link>
               </Button>
-              <Button variant="glass" size="icon">
-                <Settings className="w-5 h-5" />
+              <Button variant="glass" size="icon" asChild>
+                <Link to="/dashboard/teacher/settings">
+                  <Settings className="w-5 h-5" />
+                </Link>
               </Button>
               <Button variant="glass" size="icon" asChild>
                 <Link to="/login">
@@ -180,9 +184,10 @@ const TeacherDashboard = () => {
               <CardContent>
                 <div className="space-y-3">
                   {filteredStudents.map((student) => (
-                    <div
+                    <Link
                       key={student.id}
-                      className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                      to={`/dashboard/teacher/student/${student.id}`}
+                      className={`p-4 rounded-xl border transition-all cursor-pointer block ${
                         selectedStudent === student.id
                           ? "border-primary bg-primary/5"
                           : "border-border hover:border-primary/50 hover:bg-muted/50"
@@ -214,7 +219,7 @@ const TeacherDashboard = () => {
                           </span>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </CardContent>
@@ -300,17 +305,19 @@ const TeacherDashboard = () => {
                 <CardTitle className="text-lg">إجراءات سريعة</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => alert("تم ترشيح الطالب للمكافأة بنجاح! ✨\n\nسيتم إرسال إشعار لولي الأمر.")}>
                   <Star className="w-4 h-4 text-accent" />
                   ترشيح طالب للمكافأة
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={() => alert("سيتم فتح نافذة إرسال رسالة لولي الأمر")}>
                   <MessageSquare className="w-4 h-4 text-primary" />
                   إرسال رسالة لولي الأمر
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Calendar className="w-4 h-4 text-secondary" />
-                  عرض سجل الحضور
+                <Button variant="outline" className="w-full justify-start" asChild>
+                  <Link to="/dashboard/teacher/attendance">
+                    <Calendar className="w-4 h-4 text-secondary" />
+                    عرض سجل الحضور
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
