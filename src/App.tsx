@@ -17,6 +17,10 @@ import StudentNotifications from "./pages/dashboard/student/Notifications";
 import StudentBadges from "./pages/dashboard/student/Badges";
 import StudentSelfEvaluation from "./pages/dashboard/student/SelfEvaluation";
 import StudentAllEvaluations from "./pages/dashboard/student/AllEvaluations";
+import TeacherSettings from "./pages/dashboard/teacher/Settings";
+import TeacherNotifications from "./pages/dashboard/teacher/Notifications";
+import StudentEvaluations from "./pages/dashboard/teacher/StudentEvaluations";
+import AttendanceRecord from "./pages/dashboard/teacher/AttendanceRecord";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +44,10 @@ const App = () => (
           <Route path="/dashboard/student/self-evaluation" element={<StudentSelfEvaluation />} />
           <Route path="/dashboard/student/evaluations" element={<StudentAllEvaluations />} />
           <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
+          <Route path="/dashboard/teacher/settings" element={<TeacherSettings />} />
+          <Route path="/dashboard/teacher/notifications" element={<TeacherNotifications />} />
+          <Route path="/dashboard/teacher/student/:studentId" element={<StudentEvaluations />} />
+          <Route path="/dashboard/teacher/attendance" element={<AttendanceRecord />} />
           <Route path="/dashboard/parent" element={<ParentDashboard />} />
           <Route path="/dashboard/admin" element={<AdminDashboard />} />
           <Route path="*" element={<NotFound />} />
