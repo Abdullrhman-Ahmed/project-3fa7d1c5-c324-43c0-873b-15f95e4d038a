@@ -69,14 +69,18 @@ const StudentDashboard = () => {
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="glass" size="icon" className="relative">
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
-                  3
-                </span>
+              <Button variant="glass" size="icon" className="relative" asChild>
+                <Link to="/dashboard/student/notifications">
+                  <Bell className="w-5 h-5" />
+                  <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
+                    3
+                  </span>
+                </Link>
               </Button>
-              <Button variant="glass" size="icon">
-                <Settings className="w-5 h-5" />
+              <Button variant="glass" size="icon" asChild>
+                <Link to="/dashboard/student/settings">
+                  <Settings className="w-5 h-5" />
+                </Link>
               </Button>
               <Button variant="glass" size="icon" asChild>
                 <Link to="/login">
@@ -176,9 +180,11 @@ const StudentDashboard = () => {
                     <Clock className="w-5 h-5 text-primary" />
                     آخر التقييمات
                   </h2>
-                  <Button variant="ghost" size="sm">
-                    عرض الكل
-                    <ChevronLeft className="w-4 h-4" />
+                  <Button variant="ghost" size="sm" asChild>
+                    <Link to="/dashboard/student/evaluations">
+                      عرض الكل
+                      <ChevronLeft className="w-4 h-4" />
+                    </Link>
                   </Button>
                 </div>
                 <div className="space-y-4">
@@ -266,9 +272,11 @@ const StudentDashboard = () => {
                     <AchievementBadge key={index} type={badge} size="md" earned={false} />
                   ))}
                 </div>
-                <Button variant="outline" className="w-full mt-4">
-                  عرض جميع الشارات
-                  <ChevronLeft className="w-4 h-4" />
+                <Button variant="outline" className="w-full mt-4" asChild>
+                  <Link to="/dashboard/student/badges">
+                    عرض جميع الشارات
+                    <ChevronLeft className="w-4 h-4" />
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -293,8 +301,10 @@ const StudentDashboard = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   قيّم سلوكك اليوم لتتعرف على نقاط قوتك وتحسينك
                 </p>
-                <Button variant="outline" className="w-full">
-                  ابدأ التقييم الذاتي
+                <Button variant="outline" className="w-full" asChild>
+                  <Link to="/dashboard/student/self-evaluation">
+                    ابدأ التقييم الذاتي
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
