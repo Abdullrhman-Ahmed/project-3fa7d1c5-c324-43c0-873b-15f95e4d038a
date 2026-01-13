@@ -109,14 +109,18 @@ const ParentDashboard = () => {
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="glass" size="icon" className="relative">
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
-                  3
-                </span>
+              <Button variant="glass" size="icon" className="relative" asChild>
+                <Link to="/dashboard/parent/evaluations">
+                  <Bell className="w-5 h-5" />
+                  <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
+                    3
+                  </span>
+                </Link>
               </Button>
-              <Button variant="glass" size="icon">
-                <Settings className="w-5 h-5" />
+              <Button variant="glass" size="icon" asChild>
+                <Link to="/dashboard/parent/settings">
+                  <Settings className="w-5 h-5" />
+                </Link>
               </Button>
               <Button variant="glass" size="icon" asChild>
                 <Link to="/login">
@@ -191,9 +195,11 @@ const ParentDashboard = () => {
                     <BookOpen className="w-5 h-5 text-primary" />
                     آخر التقييمات
                   </CardTitle>
-                  <Button variant="ghost" size="sm">
-                    عرض الكل
-                    <ChevronLeft className="w-4 h-4" />
+                  <Button variant="ghost" size="sm" asChild>
+                    <Link to="/dashboard/parent/evaluations">
+                      عرض الكل
+                      <ChevronLeft className="w-4 h-4" />
+                    </Link>
                   </Button>
                 </div>
               </CardHeader>
@@ -360,17 +366,23 @@ const ParentDashboard = () => {
                 <CardTitle className="text-lg">إجراءات سريعة</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button variant="outline" className="w-full justify-start">
-                  <MessageSquare className="w-4 h-4 text-primary" />
-                  تواصل مع المعلم
+                <Button variant="outline" className="w-full justify-start" asChild>
+                  <Link to="/dashboard/parent/contact-teacher">
+                    <MessageSquare className="w-4 h-4 text-primary" />
+                    تواصل مع المعلم
+                  </Link>
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <FileText className="w-4 h-4 text-secondary" />
-                  تحميل التقرير الشهري
+                <Button variant="outline" className="w-full justify-start" asChild>
+                  <Link to="/dashboard/parent/monthly-report">
+                    <FileText className="w-4 h-4 text-secondary" />
+                    تحميل التقرير الشهري
+                  </Link>
                 </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Calendar className="w-4 h-4 text-accent" />
-                  جدول الحصص
+                <Button variant="outline" className="w-full justify-start" asChild>
+                  <Link to="/dashboard/parent/schedule">
+                    <Calendar className="w-4 h-4 text-accent" />
+                    جدول الحصص
+                  </Link>
                 </Button>
               </CardContent>
             </Card>

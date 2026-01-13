@@ -36,7 +36,7 @@ const AdminDashboard = () => {
   // Mock data
   const admin = {
     name: "مدير المدرسة",
-    school: "مدرسة WE للتكنولوجيا التطبيقية - القاهرة",
+    school: "مدرسة WE للتكنولوجيا التطبيقية - الجيزة",
   };
 
   const overviewStats = {
@@ -97,11 +97,18 @@ const AdminDashboard = () => {
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon" className="text-sidebar-foreground relative">
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
-                  8
-                </span>
+              <Button variant="ghost" size="icon" className="text-sidebar-foreground relative" asChild>
+                <Link to="/dashboard/admin/notifications">
+                  <Bell className="w-5 h-5" />
+                  <span className="absolute -top-1 -left-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
+                    8
+                  </span>
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" className="text-sidebar-foreground" asChild>
+                <Link to="/dashboard/admin/settings">
+                  <Settings className="w-5 h-5" />
+                </Link>
               </Button>
               <Button variant="ghost" size="icon" className="text-sidebar-foreground" asChild>
                 <Link to="/login">
@@ -225,9 +232,11 @@ const AdminDashboard = () => {
                         <Award className="w-5 h-5 text-accent" />
                         الطلاب المتميزون
                       </CardTitle>
-                      <Button variant="ghost" size="sm">
-                        عرض الكل
-                        <ChevronLeft className="w-4 h-4" />
+                      <Button variant="ghost" size="sm" asChild>
+                        <Link to="/dashboard/admin/students">
+                          عرض الكل
+                          <ChevronLeft className="w-4 h-4" />
+                        </Link>
                       </Button>
                     </div>
                   </CardHeader>
@@ -286,8 +295,10 @@ const AdminDashboard = () => {
                         </div>
                       ))}
                     </div>
-                    <Button variant="outline" className="w-full mt-4">
-                      إنشاء خطة تحسين
+                    <Button variant="outline" className="w-full mt-4" asChild>
+                      <Link to="/dashboard/admin/improvement-plan">
+                        إنشاء خطة تحسين
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -298,21 +309,29 @@ const AdminDashboard = () => {
                     <CardTitle className="text-lg">إجراءات سريعة</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start">
-                      <FileText className="w-4 h-4 text-primary" />
-                      تقرير شهري
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <Link to="/dashboard/admin/monthly-report">
+                        <FileText className="w-4 h-4 text-primary" />
+                        تقرير شهري
+                      </Link>
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
-                      <Shield className="w-4 h-4 text-secondary" />
-                      إعدادات السلوك
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <Link to="/dashboard/admin/behavior-settings">
+                        <Shield className="w-4 h-4 text-secondary" />
+                        إعدادات السلوك
+                      </Link>
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
-                      <Award className="w-4 h-4 text-accent" />
-                      إدارة المكافآت
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <Link to="/dashboard/admin/rewards">
+                        <Award className="w-4 h-4 text-accent" />
+                        إدارة المكافآت
+                      </Link>
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
-                      <Users className="w-4 h-4 text-purple-500" />
-                      إضافة معلم/طالب
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <Link to="/dashboard/admin/add-user">
+                        <Users className="w-4 h-4 text-purple-500" />
+                        إضافة معلم/طالب
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>
