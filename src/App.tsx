@@ -21,6 +21,19 @@ import TeacherSettings from "./pages/dashboard/teacher/Settings";
 import TeacherNotifications from "./pages/dashboard/teacher/Notifications";
 import StudentEvaluations from "./pages/dashboard/teacher/StudentEvaluations";
 import AttendanceRecord from "./pages/dashboard/teacher/AttendanceRecord";
+import ParentSettings from "./pages/dashboard/parent/Settings";
+import ParentAllEvaluations from "./pages/dashboard/parent/AllEvaluations";
+import ContactTeacher from "./pages/dashboard/parent/ContactTeacher";
+import MonthlyReport from "./pages/dashboard/parent/MonthlyReport";
+import Schedule from "./pages/dashboard/parent/Schedule";
+import AdminSettings from "./pages/dashboard/admin/Settings";
+import AdminNotifications from "./pages/dashboard/admin/Notifications";
+import AllStudents from "./pages/dashboard/admin/AllStudents";
+import ImprovementPlan from "./pages/dashboard/admin/ImprovementPlan";
+import AdminMonthlyReport from "./pages/dashboard/admin/MonthlyReport";
+import BehaviorSettings from "./pages/dashboard/admin/BehaviorSettings";
+import RewardsManagement from "./pages/dashboard/admin/RewardsManagement";
+import AddUser from "./pages/dashboard/admin/AddUser";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -49,7 +62,20 @@ const App = () => (
           <Route path="/dashboard/teacher/student/:studentId" element={<StudentEvaluations />} />
           <Route path="/dashboard/teacher/attendance" element={<AttendanceRecord />} />
           <Route path="/dashboard/parent" element={<ParentDashboard />} />
+          <Route path="/dashboard/parent/settings" element={<ParentSettings />} />
+          <Route path="/dashboard/parent/evaluations" element={<ParentAllEvaluations />} />
+          <Route path="/dashboard/parent/contact-teacher" element={<ContactTeacher />} />
+          <Route path="/dashboard/parent/monthly-report" element={<MonthlyReport />} />
+          <Route path="/dashboard/parent/schedule" element={<Schedule />} />
           <Route path="/dashboard/admin" element={<AdminDashboard />} />
+          <Route path="/dashboard/admin/settings" element={<AdminSettings />} />
+          <Route path="/dashboard/admin/notifications" element={<AdminNotifications />} />
+          <Route path="/dashboard/admin/students" element={<AllStudents />} />
+          <Route path="/dashboard/admin/improvement-plan" element={<ImprovementPlan />} />
+          <Route path="/dashboard/admin/monthly-report" element={<AdminMonthlyReport />} />
+          <Route path="/dashboard/admin/behavior-settings" element={<BehaviorSettings />} />
+          <Route path="/dashboard/admin/rewards" element={<RewardsManagement />} />
+          <Route path="/dashboard/admin/add-user" element={<AddUser />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

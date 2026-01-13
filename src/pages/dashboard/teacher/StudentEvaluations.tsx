@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { ProgressBar } from "@/components/ui/progress-bar";
 import { LevelBadge, getLevelFromPoints } from "@/components/ui/level-badge";
+import { toast } from "sonner";
 import {
   GraduationCap,
   ArrowRight,
@@ -16,6 +19,8 @@ import {
   CheckCircle,
   XCircle,
   Clock,
+  Plus,
+  Gift,
 } from "lucide-react";
 
 const StudentEvaluations = () => {
@@ -271,17 +276,51 @@ const StudentEvaluations = () => {
             {/* Quick Actions */}
             <Card>
               <CardHeader>
+                <CardTitle className="text-lg">إضافة تقييم جديد</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <select className="w-full h-10 px-3 rounded-lg border border-input bg-background text-sm">
+                  <option value="">اختر نوع التقييم</option>
+                  <option value="discipline">الانضباط</option>
+                  <option value="participation">المشاركة</option>
+                  <option value="homework">الواجبات</option>
+                  <option value="behavior">السلوك العام</option>
+                </select>
+                <div className="flex gap-2">
+                  <Button
+                    variant="outline"
+                    className="flex-1 text-success border-success hover:bg-success hover:text-success-foreground"
+                    onClick={() => toast.success("تم إضافة تقييم إيجابي بنجاح! ✅")}
+                  >
+                    <Plus className="w-4 h-4" />
+                    إيجابي
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1 text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground"
+                    onClick={() => toast.success("تم إضافة تقييم سلبي! ⚠️")}
+                  >
+                    سلبي
+                  </Button>
+                </div>
+                <textarea
+                  className="w-full h-16 p-2 rounded-lg border border-input bg-background resize-none text-sm"
+                  placeholder="ملاحظات إضافية..."
+                />
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle className="text-lg">إجراءات سريعة</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
-                <Button variant="outline" className="w-full justify-start" asChild>
-                  <Link to="/dashboard/teacher">
-                    <BookOpen className="w-4 h-4 text-primary" />
-                    إضافة تقييم جديد
-                  </Link>
-                </Button>
-                <Button variant="outline" className="w-full justify-start">
-                  <Star className="w-4 h-4 text-accent" />
+                <Button
+                  variant="outline"
+                  className="w-full justify-start"
+                  onClick={() => toast.success("تم ترشيح الطالب للمكافأة بنجاح! ✨\n\nسيتم إرسال إشعار لولي الأمر.")}
+                >
+                  <Gift className="w-4 h-4 text-accent" />
                   ترشيح للمكافأة
                 </Button>
               </CardContent>
